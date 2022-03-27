@@ -21,23 +21,23 @@ void menu()
 	setbkcolor(RGB(0, 0, 0));
 	setbkmode(TRANSPARENT);
 	settextcolor(RGB(255, 255, 255));
-	settextstyle(100, 0, _T("¿¬Ìå"));
-	outtextxy(240, 40, _T("Ì°³ÔÉß"));
-	settextstyle(30, 0, _T("¿¬Ìå"));
-	outtextxy(310, 160, _T("¿Õ¸ñ¼üÑ¡Ä£Ê½"));
-	settextstyle(60, 0, _T("¿¬Ìå"));
-	outtextxy(280, 250, _T("¾­µäÄ£Ê½"));
-	settextstyle(60, 0, _T("¿¬Ìå"));
-	outtextxy(280, 330, _T("µÀ¾ßÄ£Ê½"));
-	settextstyle(60, 0, _T("¿¬Ìå"));
-	outtextxy(280, 410, _T("¾çÇéÄ£Ê½"));
+	settextstyle(100, 0, _T("æ¥·ä½“"));
+	outtextxy(240, 40, _T("è´ªåƒè›‡"));
+	settextstyle(30, 0, _T("æ¥·ä½“"));
+	outtextxy(310, 160, _T("ç©ºæ ¼é”®é€‰æ¨¡å¼"));
+	settextstyle(60, 0, _T("æ¥·ä½“"));
+	outtextxy(280, 250, _T("ç»å…¸æ¨¡å¼"));
+	settextstyle(60, 0, _T("æ¥·ä½“"));
+	outtextxy(280, 330, _T("é“å…·æ¨¡å¼"));
+	settextstyle(60, 0, _T("æ¥·ä½“"));
+	outtextxy(280, 410, _T("å‰§æƒ…æ¨¡å¼"));
 }
 
 void choose()
 {
 	int chs = 1;
-	settextstyle(60, 0, _T("¿¬Ìå"));
-	outtextxy(220, 250, _T("¡ú"));
+	settextstyle(60, 0, _T("æ¥·ä½“"));
+	outtextxy(220, 250, _T("â†’"));
 	char judge = '0';
 	while (judge != ' ')
 	{
@@ -56,18 +56,18 @@ void choose()
 		}
 		if (chs == 1)
 		{
-			settextstyle(60, 0, _T("¿¬Ìå"));
-			outtextxy(220, 250, _T("¡ú"));
+			settextstyle(60, 0, _T("æ¥·ä½“"));
+			outtextxy(220, 250, _T("â†’"));
 		}
 		if (chs == 2)
 		{
-			settextstyle(60, 0, _T("¿¬Ìå"));
-			outtextxy(220, 330, _T("¡ú"));
+			settextstyle(60, 0, _T("æ¥·ä½“"));
+			outtextxy(220, 330, _T("â†’"));
 		}
 		if (chs == 3)
 		{
-			settextstyle(60, 0, _T("¿¬Ìå"));
-			outtextxy(220, 410, _T("¡ú"));
+			settextstyle(60, 0, _T("æ¥·ä½“"));
+			outtextxy(220, 410, _T("â†’"));
 		}
 		if (judge == ' ')
 		{
@@ -90,7 +90,7 @@ void choose()
 
 void moveSnake()
 {
-	//±éÀú¶şÎ¬Êı×é£¬ÉßÉí²¿·Ö¼Ó1£¬¼ÇÂ¼ÉßÒÆ¶¯Ç°µÄÎ»ÖÃ
+	//éå†äºŒç»´æ•°ç»„ï¼Œè›‡èº«éƒ¨åˆ†åŠ 1ï¼Œè®°å½•è›‡ç§»åŠ¨å‰çš„ä½ç½®
 	for (int i = 0; i < HEIGHT; i++)
 	{
 		for (int j = 0; j < WIDTH; j++)
@@ -119,7 +119,7 @@ void moveSnake()
 			}
 		}
 	}
-	//¸üĞÂÉßµÄÎ»ÖÃ
+	//æ›´æ–°è›‡çš„ä½ç½®
 	int newHead_i = oldHead_i;
 	int newHead_j = oldHead_j;
 	if (moveDirection == 'w')
@@ -132,7 +132,7 @@ void moveSnake()
 		newHead_j += 1;
 
 
-	//ÊµÏÖ´ÓÇ½±ÚÁíÒ»¶Ë´©³ö£¬²¢ÇÒÏŞÖÆÉßµÄÒÆ¶¯
+	//å®ç°ä»å¢™å£å¦ä¸€ç«¯ç©¿å‡ºï¼Œå¹¶ä¸”é™åˆ¶è›‡çš„ç§»åŠ¨
 	if (newHead_i >= HEIGHT)
 	{
 		newHead_i = 0;
@@ -152,10 +152,10 @@ void moveSnake()
 		return;
 	}
 
-	//¸üĞÂÉßÍ·µÄÎ»ÖÃ ÒªÔÚÅĞ¶ÏÉßÍ·Î»ÖÃÊÇ·ñÕıÈ·Ö®ºó
+	//æ›´æ–°è›‡å¤´çš„ä½ç½® è¦åœ¨åˆ¤æ–­è›‡å¤´ä½ç½®æ˜¯å¦æ­£ç¡®ä¹‹å
 	Blocks[newHead_i][newHead_j] = 1;
 
-	//³Ô·¹
+	//åƒé¥­
 	if (newHead_i == food_i && newHead_j == food_j)
 	{
 		food_i = rand() % (HEIGHT - 5) + 2;
@@ -201,8 +201,8 @@ void show()
 	{
 		setbkmode(TRANSPARENT);
 		settextcolor(RGB(255, 0, 0));
-		settextstyle(80, 0, _T("¿¬Ìå"));
-		outtextxy(240, 220, _T("ÓÎÏ·Ê§°Ü"));
+		settextstyle(80, 0, _T("æ¥·ä½“"));
+		outtextxy(240, 220, _T("æ¸¸æˆå¤±è´¥"));
 	}
 	FlushBatchDraw();
 }
@@ -220,8 +220,8 @@ void updateWithoutInput()
 	}
 }
 
-/*ÊÂÊµÉÏ£¬ÒÆ¶¯ÉßµÄº¯ÊıÖ»ÓĞmovewithoutinput£¬
-movewithinputµÄ×÷ÓÃÊÇµÃµ½ÓÃ»§ÊäÈëÒÔµ÷ÓÃmoveº¯Êı£¬À´¸üĞÂÉßµÄÎ»ÖÃ
+/*äº‹å®ä¸Šï¼Œç§»åŠ¨è›‡çš„å‡½æ•°åªæœ‰movewithoutinputï¼Œ
+movewithinputçš„ä½œç”¨æ˜¯å¾—åˆ°ç”¨æˆ·è¾“å…¥ä»¥è°ƒç”¨moveå‡½æ•°ï¼Œæ¥æ›´æ–°è›‡çš„ä½ç½®
 */
 
 void updateWithInput()
@@ -249,18 +249,18 @@ void updateWithInput()
 	}
 }
 
-int main() //  Ö÷º¯Êı
+int main() //  ä¸»å‡½æ•°
 {
 	menu();
 	choose();
 	if (mode == 1)
 	{
-		startup();  // ³õÊ¼»¯º¯Êı£¬½öÖ´ĞĞÒ»´Î	
-		while (1)   // Ò»Ö±Ñ­»·
+		startup();  // åˆå§‹åŒ–å‡½æ•°ï¼Œä»…æ‰§è¡Œä¸€æ¬¡	
+		while (1)   // ä¸€ç›´å¾ªç¯
 		{
-			show();  // ½øĞĞ»æÖÆ
-			updateWithoutInput(); // ºÍÊäÈëÎŞ¹ØµÄ¸üĞÂ 
-			updateWithInput();    // ºÍÊäÈëÓĞ¹ØµÄ¸üĞÂ
+			show();  // è¿›è¡Œç»˜åˆ¶
+			updateWithoutInput(); // å’Œè¾“å…¥æ— å…³çš„æ›´æ–° 
+			updateWithInput();    // å’Œè¾“å…¥æœ‰å…³çš„æ›´æ–°
 		}
 		return 0;
 	}
