@@ -190,8 +190,14 @@ void show()
 		for (j = 0; j < WIDTH; j++)
 		{
 			if (Blocks[i][j] > 0)
+			{
 				setfillcolor(HSVtoRGB(Blocks[i][j] * 10, 0.9, 1));
-			else setfillcolor(WHITE);
+			}
+			else if (Blocks[i][j] < 0)
+			{
+				setfillcolor(BLACK);
+			}
+			else	setfillcolor(WHITE);
 			fillrectangle(j * BLOCK_SIZE, i * BLOCK_SIZE, (j + 1) * BLOCK_SIZE, (i + 1) * BLOCK_SIZE);
 		}
 	}
